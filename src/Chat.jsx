@@ -48,7 +48,7 @@ export default function Chat() {
     }
   }
   function logout() {
-    axios.post('http://localhost:8000/logout').then(() => {
+    axios.post('https://conversa-backend-31ia.onrender.com/logout').then(() => {
       setWs(null);
       setId(null);
       setUsername(null);
@@ -62,7 +62,7 @@ export default function Chat() {
       file,
     }));
     if (file) {
-      axios.get('http://localhost:8000/messages/'+selectedUserId).then(res => {
+      axios.get('https://conversa-backend-31ia.onrender.com/messages/'+selectedUserId).then(res => {
         setMessages(res.data);
       });
     } else {
@@ -94,7 +94,7 @@ export default function Chat() {
   }, [messages]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/people').then(res => {
+    axios.get('https://conversa-backend-31ia.onrender.com/people').then(res => {
       const offlinePeopleArr = res.data
         .filter(p => p._id !== id)
         .filter(p => !Object.keys(onlinePeople).includes(p._id));
@@ -108,7 +108,7 @@ export default function Chat() {
 
   useEffect(() => {
     if (selectedUserId) {
-      axios.get('http://localhost:8000/messages/'+selectedUserId).then(res => {
+      axios.get('https://conversa-backend-31ia.onrender.com/messages/'+selectedUserId).then(res => {
         setMessages(res.data);
       });
     }

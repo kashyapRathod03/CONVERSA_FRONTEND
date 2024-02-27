@@ -10,7 +10,7 @@ export default function RegisterAndLoginForm() {
   async function handleSubmit(ev) {
     ev.preventDefault();
     const url = isLoginOrRegister === 'register' ? 'register' : 'login';
-    const {data} = await axios.post(`http://localhost:8000/${url}`, {username,password});
+    const {data} = await axios.post(`https://conversa-backend-31ia.onrender.com${url}`, {username,password});
     setLoggedInUsername(username);
     setId(data.id);
   }

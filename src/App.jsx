@@ -3,7 +3,7 @@ import {UserContextProvider} from "./UserContext";
 import Routes from "./Routes";
 
 function App() {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = 'https://conversa-backend-31ia.onrender.com';
   axios.defaults.withCredentials = true;
   return (
     <UserContextProvider>
